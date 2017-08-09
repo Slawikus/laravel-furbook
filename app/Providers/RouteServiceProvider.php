@@ -23,9 +23,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
+//        $this->model('cat', 'Furbook\Cat');
         parent::boot();
+//        Route::model('cat', Furbook\Cat::class);
     }
 
     /**

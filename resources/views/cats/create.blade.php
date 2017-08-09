@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    {!! Form::open(['url' => '/cats']) !!}
+    {!! Form::open(['url' => '/cat']) !!}
         @include('partials.forms.cats')
     {!! Form::close() !!}
 @endsection

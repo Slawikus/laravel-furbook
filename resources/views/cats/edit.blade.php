@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    {!! Form::model($cat, ['url' => '/cats/'.$cat->id, 'method' => 'put']) !!}
+    {!! Form::model($cat, ['url' => '/cat/'.$cat->id, 'method' => 'put']) !!}
     @include('partials.forms.cats')
     {!! Form::close() !!}
 @endsection

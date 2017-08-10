@@ -34,8 +34,9 @@ class CatTest extends TestCase
 
     public function testCanAddCatWithFactory()
     {
-        $cat = factory(\Furbook\Cat::class)->create(['name' => 'alice']);
-        $this->assertDatabaseHas('cats', ['name' => 'alice']);
+        $cat = factory(\Furbook\Cat::class)->create();
+        $this->assertDatabaseHas('cats', ['name' => $cat->name]);
+        $this->assertDatabaseHas('breeds', ['name' => $cat->breed->name]);
 
     }
 }

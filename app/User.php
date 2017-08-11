@@ -18,6 +18,10 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $casts = [
+        'is_admin' => 'boolean'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,4 +30,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cats() {
+        return $this->hasMany('Furbook\Cat');
+    }
+
+    public function owns(Cat $cat)
+    {
+        return $this->id == $cat->user_id;
+    }
+
+    public function canEdit(Cat $cat)
+    {
+        return $this->is_admin || $this->owns($cat);
+    }
+
+    public function isAdministrator()
+    {
+        return $this->getAttribute('is_admin');
+    }
 }

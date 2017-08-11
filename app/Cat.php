@@ -11,4 +11,8 @@ class Cat extends Model
     public function breed() {
         return $this->belongsTo('Furbook\Breed');
     }
+
+    public function user() {
+        return $this->belongsTo('Furbook\User');
+    }
 }

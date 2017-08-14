@@ -3,6 +3,7 @@
 namespace Furbook\Http\Controllers;
 
 use Furbook\Cat;
+use Furbook\Http\Requests\StoreCat;
 use Illuminate\Http\Request;
 
 class CatController extends Controller
@@ -35,7 +36,7 @@ class CatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCat $request)
     {
         $cat = Cat::create($request->all());
         return redirect('cat/'.$cat->id)->withSuccess('Cat has been created');
